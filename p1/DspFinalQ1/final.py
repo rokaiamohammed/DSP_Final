@@ -1,10 +1,7 @@
 import plotly.graph_objects as go
-
+import os
 import pandas as pd
-
-import cv2
-import numpy as np
-import glob
+from IPython.display import Image
 
 data_file = 'p.csv'
 
@@ -165,5 +162,12 @@ fig_dict["layout"]["sliders"] = [sliders_dict]
 fig = go.Figure(fig_dict)
 
 fig.show()
-
+# if not os.path.exists("images"):
+#     os.mkdir("images")
+# img_bytes = fig.to_image(format="png", width=600, height=350, scale=2)
+# Image(img_bytes)
+StorageData=16129
+for i in range(StorageData):
+           fig = px.bar(StorageData[i], x="location", y="total_cases",
+      animation_frame="date", animation_group="total_cases",text='total_cases')
 
